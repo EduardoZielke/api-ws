@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const app = express()
 const carRoutes = require('./routes/carRoutes')
 
-mongoose.connect('mongodb://127.0.0.1:27017/ws-cars')
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://127.0.0.1:27017/ws-cars')
 let db = mongoose.connection
 
 app.get('/', (req, res) => {
