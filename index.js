@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 const carRoutes = require('./routes/carRoutes')
+const PORT = process.env.PORT || 2000
 
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://127.0.0.1:27017/ws-cars')
 let db = mongoose.connection
@@ -18,7 +19,7 @@ db.on('error', () => {console.log('Houve um erro ao conectar com o db')})
 db.once('open', () => {
     console.log('Banco de dados conectado com sucesso')
 
-    app.listen(process.env.PORT || 2000, () => {
-        console.log(`Servidor rodando na porta: ${process.env.PORT || 2000}`)
+    app.listen(PORT, () => {
+        console.log(`Servidor rodando na porta: ${PORT}`)
     })
 })
