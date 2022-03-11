@@ -9,7 +9,7 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb://127.0.0.1:27017/ws-cars')
 let db = mongoose.connection
 
 const corsOptions = {
-    origin: 'https://ws-front-end.herokuapp.com/',
+    origin: 'https://ws-front-end.herokuapp.com',
     optionsSuccessStatus: 200
 }
 
