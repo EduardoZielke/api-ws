@@ -11,16 +11,6 @@ const listarCarros = async (req, res) => {
     }
 }
 
-// const listarMarcas = async (req, res) => {
-    
-//     try {
-//         const marcas = await Brands.find()
-//         res.send(marcas)
-//     } catch (error) {
-//         res.send({message: error})
-//     }
-// }
-
 const adicionarCarro = async (req, res) => {
     console.log(req.body.nome_modelo)
     const nome_modelo = req.body.nome_modelo.toUpperCase()
@@ -72,38 +62,5 @@ const adicionarCarro = async (req, res) => {
     }
 }
 
-// const adicionarMarca = async (req, res) => {
-//     const marca_nome = req.body.marca_nome.toUpperCase()
-//     const marcaExiste = await Brands.findOne({marca_nome})
-
-//     if(!marcaExiste) {
-//         try {
-//             let newBrand = await new Brands({
-//                 marca_nome,
-//                 marca_id: await handleId()
-//             })
-//             newBrand.save().then(()=>{
-//                 res.send({message:'Marca adicionada com sucesso!'})
-//             })
-//         } catch (error) {
-//             console.error('Ocorreu um erro ao adicionar a marca', error)
-//             res.json({message: error})
-//         }
-
-//     } else {
-//         res.json({message:'Marca já está cadastrada no sistema!'})
-//     }
-
-//     async function handleId() {
-//         let brands = await Brands.find()
-//         if(brands.length === 0) {
-//             return 1
-//         }
-//         return brands.length + 1
-//     }
-
-// }
-
-
-module.exports = {listarCarros, listarMarcas, adicionarCarro, adicionarMarca}
+module.exports = {listarCarros, adicionarCarro}
 
