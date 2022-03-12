@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 const cors = require('cors')
-const carRoutes = require('./routes/carRoutes')
+const routes = require('./routes')
 const PORT = process.env.PORT || 2000
 
 mongoose.connect(process.env.MONGODB_URL || 'mongodb://127.0.0.1:27017/ws-cars')
@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
-app.use(carRoutes)
+app.use(routes)
 
 db.on('error', () => {console.log('Houve um erro ao conectar com o db')})
 db.once('open', () => {
